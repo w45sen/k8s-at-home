@@ -1,0 +1,8 @@
+---
+kubernetes:
+  children:
+    master:
+      hosts:
+        k8s-0:
+          ansible_user: phekno
+          ansible_host: 10.100.50.6
