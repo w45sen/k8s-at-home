@@ -5,26 +5,33 @@ metadata:
   name: onepassword-connect
   namespace: kube-system
 spec:
-  interval: 30m
+  interval: 15m
   chart:
     spec:
       chart: app-template
       version: 2.0.1
-      interval: 30m
       sourceRef:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
-
+  maxHistory: 2
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
   values:
     controller:
       annotations:
         reloader.stakater.com/auto: "true"
-
     image:
       repository: docker.io/1password/connect-api
       tag: 1.7.2
-
     env:
       OP_BUS_PORT: "11220"
       OP_BUS_PEERS: "localhost:11221"
@@ -34,13 +41,11 @@ spec:
           secretKeyRef:
             name: onepassword-connect-secret
             key: onepassword-credentials.json
-
     service:
       main:
         ports:
           http:
             port: *port
-
     ingress:
       main:
         enabled: true
@@ -52,7 +57,6 @@ spec:
         tls:
           - hosts:
               - *host
-
     probes:
       liveness:
         enabled: true
@@ -83,24 +87,20 @@ spec:
           periodSeconds: 5
           successThreshold: 1
           timeoutSeconds: 1
-
     podSecurityContext:
       runAsUser: 999
       runAsGroup: 999
-
     persistence:
       shared:
         enabled: true
         type: emptyDir
         mountPath: /home/opuser/.op/data
-
     resources:
       requests:
         cpu: 5m
         memory: 10Mi
       limits:
         memory: 100Mi
-
     sidecars:
       sync:
         name: sync
