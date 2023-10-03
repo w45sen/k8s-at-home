@@ -82,12 +82,12 @@ spec:
         server: 192.168.1.2
         path: /tank/video
         mountPath: /media
-      downloads:
-        enabled: true
-        type: nfs
-        server: 192.168.1.2
-        path: /tank/nzbget_downloads
-        mountPath: /config/Downloads
+      # downloads:
+      #   enabled: true
+      #   type: nfs
+      #   server: 192.168.1.2
+      #   path: /tank/nzbget_downloads
+      #   mountPath: /config/Downloads
 
     resources:
       requests:
@@ -102,8 +102,8 @@ spec:
         accessMode: ReadWriteOnce
         size: 1Gi
         storageClass: local-path
-      # - name: downloads
-      #   mountPath: /config/Downloads
-      #   accessMode: ReadWriteOnce
-      #   size: 500Gi
-      #   storageClass: local-path
+      - name: downloads
+        mountPath: /config/Downloads
+        accessMode: ReadWriteOnce
+        size: 500Gi
+        storageClass: local-path
