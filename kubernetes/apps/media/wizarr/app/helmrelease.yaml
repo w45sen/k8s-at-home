@@ -37,7 +37,7 @@ spec:
       repository: ghcr.io/wizarrrr/wizarr
       tag: 3.0.1
     env:
-      TZ: America/New_York
+      TZ: America/Chicago
       APP_URL: https://invite.phekno.io
       DISABLE_BUILTIN_AUTH: "true"
     service:
