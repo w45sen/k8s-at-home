@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: ingress-nginx
-      version: 4.8.0
+      version: 4.7.1
       sourceRef:
         kind: HelmRepository
         name: ingress-nginx
@@ -46,7 +46,6 @@ spec:
             - key: ingress-class
               operator: In
               values: ["external"]
-      allowSnippetAnnotations: true
       config:
         client-body-buffer-size: 100M
         client-body-timeout: 120
@@ -86,8 +85,8 @@ spec:
       resources:
         requests:
           cpu: 10m
-          memory: 1000Mi
+          memory: 250Mi
         limits:
-          memory: 2000Mi
+          memory: 500Mi
     defaultBackend:
       enabled: false

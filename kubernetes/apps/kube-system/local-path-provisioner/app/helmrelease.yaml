@@ -31,7 +31,7 @@ spec:
       defaultClass: false
     nodePathMap:
       - node: DEFAULT_PATH_FOR_NON_LISTED_NODES
-        paths: ["/mnt/nvme1"]
+        paths: ["/var/lib/rancher/k3s/storage"]
     # NOTE: Do not enable Flux variable substitution on this HelmRelease
     configmap:
       setup: |-
