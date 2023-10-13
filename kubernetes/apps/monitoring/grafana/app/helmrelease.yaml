@@ -98,6 +98,20 @@ spec:
             jsonData:
               prometheusType: Prometheus
             isDefault: true
+          - name: Loki
+            type: loki
+            uid: loki
+            access: proxy
+            url: http://loki-gateway.monitoring.svc.cluster.local
+            jsonData:
+              maxLines: 250
+          - name: Alertmanager
+            type: alertmanager
+            uid: alertmanager
+            access: proxy
+            url: http://alertmanager-operated.monitoring.svc.cluster.local:9093
+            jsonData:
+              implementation: prometheus
     dashboards:
       default:
         cloudflared:
@@ -202,6 +216,13 @@ spec:
         enabled: true
         searchNamespace: ALL
         labelValue: ""
+    plugins:
+      - grafana-clock-panel
+      - grafana-piechart-panel
+      - grafana-worldmap-panel
+      - natel-discrete-panel
+      - pr0ps-trackmap-panel
+      - vonage-status-panel
     serviceMonitor:
       enabled: true
     ingress:
