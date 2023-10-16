@@ -35,7 +35,7 @@ spec:
       type: statefulset
     image:
       repository: ghcr.io/wizarrrr/wizarr
-      tag: 2.2.0
+      tag: 3.4.1
     env:
       TZ: America/Chicago
       APP_URL: https://invite.phekno.io
