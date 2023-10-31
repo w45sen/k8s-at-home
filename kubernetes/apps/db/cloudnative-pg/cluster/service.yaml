@@ -6,10 +6,10 @@ metadata:
   namespace: db
   annotations:
     coredns.io/hostname: postgres.phekno.io
+    io.cilium/lb-ipam-ips: 10.100.50.103
 spec:
   type: LoadBalancer
-  externalTrafficPolicy: Local
-  externalIPs: ["10.100.50.103"]
+  externalTrafficPolicy: Cluster
   ports:
     - name: postgres
       port: 5432
