@@ -1,41 +1,5 @@
 ---
-log:
-  level: debug
-
-authentication_backend:
-  password_reset:
-    disable: true
-  refresh_interval: 1m
-  ldap:
-    address: ldap://lldap.security.svc.cluster.local:389
-    implementation: custom
-    timeout: 5s
-    start_tls: false
-    base_dn: dc=home,dc=arpa
-    additional_users_dn: ou=people
-    users_filter: (&({username_attribute}={input})(objectClass=person))
-    additional_groups_dn: ou=groups
-    groups_filter: (member={dn})
-    group_search_mode: filter
-    user: uid=admin,ou=people,dc=home,dc=arpa
-    password: password
-    attributes:
-      username: uid
-      display_name: displayName
-      mail: mail
-      member_of: memberOf
-      group_name: cn
-
 session:
-  same_site: lax
-  inactivity: 5m
-  expiration: 1h
-  remember_me: 1M
-  cookies:
-    - name: phekno_session
-      domain: phekno.io
-      authelia_url: https://auth.phekno.io
-      default_redirection_url: https://phekno.io
   redis:
     host: redis.db.svc.cluster.local
     database_index: 14
