@@ -40,7 +40,6 @@ identity_providers:
         pre_configured_consent_duration: 1y
         scopes: ["openid", "profile", "groups", "email"]
         redirect_uris: ["https://grafana.phekno.io/login/generic_oauth"]
-        userinfo_signed_response_alg: none
       - id: immich
         description: Immich
         secret: "${IMMICH_OAUTH_CLIENT_SECRET}"
@@ -49,4 +48,3 @@ identity_providers:
         pre_configured_consent_duration: 1y
         scopes: ["openid", "profile", "email"]
         redirect_uris: ["https://photos.phekno.io/auth/login", "app.immich:/"]
-        userinfo_signed_response_alg: none
