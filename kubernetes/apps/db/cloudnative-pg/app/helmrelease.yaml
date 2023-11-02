@@ -6,7 +6,7 @@ metadata:
   name: cloudnative-pg
   namespace: db
 spec:
-  interval: 15m
+  interval: 30m
   chart:
     spec:
       chart: cloudnative-pg
@@ -17,7 +17,6 @@ spec:
         namespace: flux-system
   maxHistory: 3
   install:
-    createNamespace: true
     remediation:
       retries: 3
   upgrade:
@@ -26,6 +25,9 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
+  dependsOn:
+    - name: local-path-provisioner
+      namespace: kube-system
   values:
     crds:
       create: true
