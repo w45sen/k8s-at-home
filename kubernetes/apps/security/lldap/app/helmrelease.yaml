@@ -4,7 +4,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: &app lldap
-  namespace: security
+  namespace: default
 spec:
   interval: 30m
   chart:
@@ -17,7 +17,6 @@ spec:
         namespace: flux-system
   maxHistory: 2
   install:
-    createNamespace: true
     remediation:
       retries: 3
   upgrade:
@@ -68,17 +67,17 @@ spec:
               labelSelector:
                 matchLabels:
                   app.kubernetes.io/name: *app
-      service:
-        main:
-          ports:
-            http:
-              port: *port
-            ldap:
-              port: *ldapPort
+    service:
+      main:
+        ports:
+          http:
+            port: *port
+          ldap:
+            port: *ldapPort
     ingress:
       main:
         enabled: true
-        ingressClassName: internal
+        className: internal
         hosts:
           - host: &host "{{ .Release.Name }}.phekno.io"
             paths:
@@ -92,4 +91,3 @@ spec:
     persistence:
       data:
         type: emptyDir
-
