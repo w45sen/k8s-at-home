@@ -3,7 +3,7 @@
 apiVersion: monitoring.coreos.com/v1alpha1
 kind: ScrapeConfig
 metadata:
-  name: expanse-node
+  name: nas-node-exporter
   namespace: monitoring
 spec:
   staticConfigs:
@@ -14,7 +14,7 @@ spec:
 apiVersion: monitoring.coreos.com/v1alpha1
 kind: ScrapeConfig
 metadata:
-  name: smartctl-exporter
+  name: nas-smartctl-exporter
   namespace: monitoring
 spec:
   staticConfigs:
