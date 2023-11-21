@@ -103,7 +103,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: *app
+        existingClaim: config
       media:
         enabled: true
         type: nfs
