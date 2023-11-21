@@ -3,7 +3,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: sonarr
+  name: &app sonarr
 spec:
   interval: 30m
   chart:
@@ -100,16 +100,10 @@ spec:
         tls:
           - hosts:
               - *host
-    volumeClaimTemplates:
-      - name: config
-        mountPath: /config
-        accessMode: ReadWriteOnce
-        size: 10Gi
-        storageClass: local-path
     persistence:
-      # config:
-      #   enabled: true
-      #   type: emptyDir
+      config:
+        enabled: true
+        existingClaim: *app
       media:
         enabled: true
         type: nfs
