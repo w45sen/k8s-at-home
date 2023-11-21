@@ -109,7 +109,7 @@ spec:
     persistence:
       config:
         enabled: true
-        type: emptyDir
+        existingClaim: sonarr-config
       media:
         enabled: true
         type: nfs
