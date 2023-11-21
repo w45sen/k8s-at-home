@@ -100,16 +100,16 @@ spec:
         tls:
           - hosts:
               - *host
-    # volumeClaimTemplates:
-    #   - name: config
-    #     mountPath: /config
-    #     accessMode: ReadWriteOnce
-    #     size: 10Gi
-    #     storageClass: local-path
+    volumeClaimTemplates:
+      - name: config
+        mountPath: /config
+        accessMode: ReadWriteOnce
+        size: 10Gi
+        storageClass: local-path
     persistence:
-      config:
-        enabled: true
-        type: emptyDir
+      # config:
+      #   enabled: true
+      #   type: emptyDir
       media:
         enabled: true
         type: nfs
