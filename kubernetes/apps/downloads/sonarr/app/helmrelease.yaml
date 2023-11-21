@@ -80,7 +80,6 @@ spec:
             runAsGroup: 1000
             fsGroup: 1000
             fsGroupChangePolicy: OnRootMismatch
-            supplementalGroups: [10000]
     service:
       main:
         ports:
@@ -103,7 +102,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: config-sonarr
+        existingClaim: config-sonarr-0
       media:
         enabled: true
         type: nfs
