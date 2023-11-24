@@ -10,6 +10,6 @@ resources:
   # - ./gatus.yaml
   - ./typesense
   - ./server
-  # - ./microservices
+  - ./microservices
   - ./machine-learning
   - ./web
