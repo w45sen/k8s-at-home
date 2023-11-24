@@ -82,7 +82,6 @@ spec:
             port: 3001
     persistence:
       library:
-        type: persistentVolumeClaim
         existingClaim: immich-nfs
         globalMounts:
           - path: /usr/src/app/upload
