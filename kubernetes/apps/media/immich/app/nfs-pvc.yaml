@@ -6,28 +6,24 @@ metadata:
 spec:
   storageClassName: immich-nfs
   capacity:
-    storage: 1Mi # Size does not matter
-  accessModes: 
+    storage: 1Mi
+  accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
   nfs:
-    server: 192.168.1.2
+    server: "192.168.1.2"
     path: /tank/immich
-  mountOptions:
-    - nfsvers=4.2
-    - nconnect=8
-    - hard
-    - noatime
+  mountOptions: ["nfsvers=4.2", "nconnect=8", "hard", "noatime"]
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: immich-nfs
-  namespace: media
+  namespace: default
 spec:
-  accessModes: 
+  accessModes:
     - ReadWriteMany
   storageClassName: immich-nfs
   resources:
     requests:
-      storage: 1Mi # Size does not matter
+      storage: 1Mi
