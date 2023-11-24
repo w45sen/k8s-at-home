@@ -106,9 +106,7 @@ spec:
               - *host
     persistence:
       library:
-        enabled: true
-        type: nfs
-        server: 192.168.1.2
-        path: /tank/immich
+        type: persistentVolumeClaim
+        existingClaim: immich-nfs
         globalMounts:
           - path: /usr/src/app/upload

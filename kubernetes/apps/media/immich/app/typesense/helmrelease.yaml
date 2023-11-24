@@ -83,7 +83,7 @@ spec:
       config:
         enabled: true
         type: persistentVolumeClaim
-        existingClaim: immich-config
+        existingClaim: config-immich-typesense-0
         globalMounts:
           - path: /config
     
