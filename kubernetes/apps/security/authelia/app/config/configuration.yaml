@@ -1,5 +1,7 @@
 ---
 session:
+  name: authelia_session
+  domain: phekno.io
   redis:
     host: redis.db.svc.cluster.local
     database_index: 14
