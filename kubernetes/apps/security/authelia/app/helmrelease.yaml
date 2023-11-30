@@ -133,7 +133,7 @@ spec:
         enabled: true
         className: internal
         hosts:
-          - host: &host auth.${SECRET_CLUSTER_DOMAIN}
+          - host: &host auth.phekno.io
             paths:
               - path: /
                 service:
