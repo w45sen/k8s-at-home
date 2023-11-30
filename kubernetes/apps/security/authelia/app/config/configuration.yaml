@@ -2,6 +2,15 @@
 session:
   name: authelia_session
   domain: phekno.io
+  cookies:
+    - domain: phekno.io
+      authelia_url: 'https://auth.phekno.io'
+      default_redirection_url: 'https://www.phekno.io'
+      name: authelia_session
+      same_site: lax
+      inactivity: 5m
+      expiration: 1h
+      remember_me: 1d
   redis:
     host: redis.db.svc.cluster.local
     database_index: 14
