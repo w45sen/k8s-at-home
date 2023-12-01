@@ -8,3 +8,11 @@ resources:
   # - ./gatus.yaml
   - ./helmrelease.yaml
   # - ./volsync.yaml
+configMapGenerator:
+  - name: servers-json
+    files:
+      - config/servers.json
+generatorOptions:
+  disableNameSuffixHash: true
+  annotations:
+    kustomize.toolkit.fluxcd.io/substitute: disabled
