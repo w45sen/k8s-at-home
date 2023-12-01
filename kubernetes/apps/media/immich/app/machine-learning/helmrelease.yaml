@@ -19,8 +19,6 @@ spec:
   dependsOn:
     - name: immich-server
       namespace: media
-    - name: redis
-      namespace: db
   values:
     controllers:
       main:
