@@ -8,7 +8,6 @@ resources:
   - ./configmap.yaml
   - ./nfs-pvc.yaml
   # - ./gatus.yaml
-  - ./redis
   - ./typesense
   - ./server
   - ./microservices
