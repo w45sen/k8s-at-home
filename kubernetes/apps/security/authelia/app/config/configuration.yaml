@@ -11,18 +11,6 @@ session:
       inactivity: 5m
       expiration: 1h
       remember_me: 1d
-  redis:
-    host: redis.db.svc.cluster.local
-    database_index: 14
-    high_availability:
-      sentinel_name: redis-master
-      nodes:
-        - host: redis-node-0.redis-headless.db.svc.cluster.local
-          port: 26379
-        - host: redis-node-1.redis-headless.db.svc.cluster.local
-          port: 26379
-        - host: redis-node-2.redis-headless.db.svc.cluster.local
-          port: 26379
 
 access_control:
   default_policy: two_factor
