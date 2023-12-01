@@ -31,8 +31,6 @@ spec:
   dependsOn:
     - name: immich-typesense
       namespace: media
-    - name: redis
-      namespace: db
   values:
     defaultPodOptions:
       enableServiceLinks: false
