@@ -66,9 +66,9 @@
     },
     "oauth": {
       "enabled": true,
-      "issuerUrl": "https://auth.${CLUSTER_DOMAIN}/.well-known/openid-configuration",
+      "issuerUrl": "https://auth.${SECRET_DOMAIN}/.well-known/openid-configuration",
       "clientId": "immich",
-      "clientSecret": "${SECRET_IMMICH_OAUTH_CLIENT_SECRET}",
+      "clientSecret": "${IMMICH_OAUTH_CLIENT_SECRET}",
       "mobileOverrideEnabled": false,
       "mobileRedirectUri": "",
       "scope": "openid email profile",
