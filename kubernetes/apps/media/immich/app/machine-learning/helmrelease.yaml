@@ -18,7 +18,6 @@ spec:
         namespace: flux-system
   dependsOn:
     - name: immich-server
-      namespace: media
   values:
     controllers:
       main:
