@@ -99,7 +99,8 @@ spec:
         enabled: true
         type: configMap
         name: immich-server-config
-        globalMounts: /config
+        globalMounts: 
+          - path: /config
       library:
         existingClaim: immich-nfs
         globalMounts:
